@@ -3,14 +3,36 @@ import { Avatar, Card } from 'antd';
 
 const { Meta } = Card;
 
-export default function PostCard() {
+function getTitle(post){
+    return getPropertyContent(post.properties.Name)
+}
+
+function getSubtitle(post){
+    return getPropertyContent(post.properties.Subtitle)
+}
+
+function getPropertyContent(property){
+    const type1 = property.type
+    return getRTOContent(property[type1][0])
+}
+
+function getRTOContent(rto){
+    const rtoType = rto.type
+    return rto[rtoType].content
+}
+
+function getCoverUrl(cover){
+    return cover[cover.type].url
+}
+
+export default function PostCard({post}) {
     return (
         <Card
             style={{ marginBottom: 10 }}
             cover={
                 <img
                     alt="example"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                    src={getCoverUrl(post.cover)}
                 />
             }
             actions={[
@@ -21,8 +43,8 @@ export default function PostCard() {
         >
             <Meta
                 avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
-                title="Card title"
-                description="This is the description"
+                title={getTitle(post)}
+                description={getSubtitle(post)}
             />
         </Card>
     );

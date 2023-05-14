@@ -2,9 +2,20 @@ import {Card, Col, Divider, Row, Space} from "antd";
 import Bio from "../components/home/bio";
 import Posts from "../components/home/posts";
 import Newsletter from "../components/home/newsletter";
+import {getPostList} from "../lib/notion";
 
-export default function Home() {
+export async function getStaticProps() {
+    console.log("starting")
+    const data = await getPostList()
+    return {
+        props: {
+            postList: data.results,
+        },
+    };
+}
 
+export default function Home({postList}) {
+    console.log(postList)
     return (
         <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
             <Bio/>
@@ -15,7 +26,7 @@ export default function Home() {
             }}>
                 <Col md={15} span={24}>
                     <Divider orientation="left">Latest Posts</Divider>
-                    <Posts/>
+                    <Posts postList={postList}/>
                 </Col>
                 <Col md={9} span={24}>
                     <Divider orientation="left">Newsletter</Divider>

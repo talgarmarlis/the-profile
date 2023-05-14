@@ -1,12 +1,13 @@
-import {Card, Col, Row} from "antd";
 import PostCard from "./postCard";
 
-export default function Posts() {
+
+
+export default function Posts({postList}) {
     return (
         <>
-            <PostCard/>
-            <PostCard/>
-            <PostCard/>
+            {postList.map((post, index) => (
+                <PostCard post={post} key={`post_card_key_${index} `}/>
+            ))}
         </>
     );
 }
