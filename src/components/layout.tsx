@@ -1,9 +1,10 @@
-import Bottom from "./bottom";
 import {Layout, theme} from "antd";
+import {Outlet} from "react-router-dom";
+import Bottom from "./bottom";
 import TopBar from "./topbar";
 const { Content } = Layout;
 
-export default function MainLayout({ children }) {
+export default function MainLayout() {
     const {
         token: { colorBgContainer = 'fff' },
     } = theme.useToken();
@@ -20,15 +21,7 @@ export default function MainLayout({ children }) {
                     minHeight: 300
                 }}
             >
-                {/*<div*/}
-                {/*    style={{*/}
-                {/*        padding: 24,*/}
-                {/*        minHeight: 380,*/}
-                {/*        background: colorBgContainer,*/}
-                {/*    }}*/}
-                {/*>*/}
-                    {children}
-                {/*</div>*/}
+                <Outlet />
             </Content>
             <Bottom/>
         </Layout>

@@ -1,5 +1,3 @@
-import MainLayout from "../components/layout";
-
 export default function Resume() {
 
     return (

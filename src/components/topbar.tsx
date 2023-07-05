@@ -1,8 +1,7 @@
 import {Menu, Layout, theme, Typography, Divider} from 'antd';
 import { useState } from 'react';
-import Link from "next/link";
 const { Header, Content} = Layout;
-const items = [
+const items : any[] = [
     // {
     //     label: (
     //         <Link href="/">
@@ -24,7 +23,7 @@ const items = [
 export default function TopBar() {
 
     const [current, setCurrent] = useState('home');
-    const onClick = (e) => {
+    const onClick = (e: any) => {
         console.log('click ', e);
         setCurrent(e.key);
     };

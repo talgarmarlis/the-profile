@@ -1,4 +1,4 @@
-import {Image, Avatar, Col, Row, Space, Typography, List, Tooltip, Button} from "antd";
+import {Image, Col, Row, Space, Typography, List, Tooltip, Button} from "antd";
 import {
     ProfileTwoTone,
     CodeTwoTone,
@@ -75,7 +75,6 @@ export default function Bio() {
             <Col md={12} span={24}>
                 <List
                     itemLayout="horizontal"
-                    borderd={false}
                     dataSource={data}
                     renderItem={(item, index) => (
                         <List.Item style={{border: 'none'}}>

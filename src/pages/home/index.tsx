@@ -1,21 +1,22 @@
 import {Card, Col, Divider, Row, Space, Typography} from "antd";
-import Bio from "../components/home/bio";
-import Posts from "../components/home/posts";
-import Newsletter from "../components/home/newsletter";
-import {getPostList} from "../lib/notion";
+import Bio from "./bio";
+import Posts from "./posts";
+import Newsletter from "./newsletter";
+import {getPostList} from "../../lib/notion";
+import {useEffect, useState} from "react";
 
-export async function getServerSideProps() {
-    console.log("starting")
-    const data = await getPostList()
-    console.log(data)
-    return {
-        props: {
-            postList: data.results,
-        },
-    };
-}
+export default function Home() {
 
-export default function Home({postList}) {
+    const [articles, setArticles] = useState([]);
+
+    useEffect(() => {
+       getPostList().then(result => {
+           console.log(result)
+           // @ts-ignore
+           setArticles(result)
+       })
+    }, []);
+
     return (
         <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
             <Bio/>
@@ -26,7 +27,7 @@ export default function Home({postList}) {
             }}>
                 <Col md={15} span={24}>
                     <Divider orientation="left">Latest Posts</Divider>
-                    <Posts postList={postList}/>
+                    <Posts articles={articles}/>
                 </Col>
                 {/*<Col md={9} span={24}>*/}
                 {/*    <Divider orientation="left">Newsletter</Divider>*/}
