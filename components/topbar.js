@@ -1,27 +1,24 @@
-import { HomeTwoTone, ProfileTwoTone } from '@ant-design/icons';
-import {Menu, Layout, theme, Space} from 'antd';
+import {Menu, Layout, theme, Typography, Divider} from 'antd';
 import { useState } from 'react';
 import Link from "next/link";
 const { Header, Content} = Layout;
 const items = [
-    {
-        label: (
-            <Link href="/">
-                HOME
-            </Link>
-        ),
-        key: 'home',
-        icon: <HomeTwoTone />,
-    },
-    {
-        label: (
-            <Link href="/resume">
-                RESUME
-            </Link>
-        ),
-        key: 'resume',
-        icon: <ProfileTwoTone />
-    }
+    // {
+    //     label: (
+    //         <Link href="/">
+    //             HOME
+    //         </Link>
+    //     ),
+    //     key: 'home'
+    // },
+    // {
+    //     label: (
+    //         <Link href="/resume">
+    //             RESUME
+    //         </Link>
+    //     ),
+    //     key: 'resume'
+    // }
 ];
 
 export default function TopBar() {
@@ -36,17 +33,24 @@ export default function TopBar() {
     } = theme.useToken();
 
     return (
-        <Header
-            style={{
-                position: 'sticky',
-                padding: '0',
-                top: 0,
-                zIndex: 1,
-                width: '100%',
-                background: colorBgContainer
-            }}
-        >
-            <Menu style={{maxWidth:1300, margin: 'auto', padding: '0 50px',}} onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
-        </Header>
+        <div>
+            <Header
+                style={{
+                    position: 'sticky',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    top: 0,
+                    zIndex: 1,
+                    maxWidth:1300,
+                    margin: 'auto',
+                    background: colorBgContainer,
+                    alignItems: 'right'
+                }}
+            >
+                <Typography.Title level={5}>Talgar Marlis</Typography.Title>
+                <Menu style={{borderBottom: 'none', display: 'table-cell', float: 'right', textAlign: 'right'}} onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+            </Header>
+            <Divider style={{margin: 0}} />
+        </div>
     );
 }

@@ -5,32 +5,31 @@ const { Content } = Layout;
 
 export default function MainLayout({ children }) {
     const {
-        token: { colorBgContainer },
+        token: { colorBgContainer = 'fff' },
     } = theme.useToken();
 
     return (
-        <Layout>
+        <Layout style={{background: colorBgContainer}}>
             <TopBar/>
-            <div>
-                <Content
-                    className="site-layout"
-                    style={{
-                        padding: '0 50px',
-                        maxWidth: 1300,
-                        margin: 'auto'
-                    }}
-                >
-                    <div
-                        style={{
-                            padding: 24,
-                            minHeight: 380,
-                            background: colorBgContainer,
-                        }}
-                    >
-                        {children}
-                    </div>
-                </Content>
-            </div>
+            <Content
+                className="site-layout"
+                style={{
+                    padding: '50px',
+                    maxWidth: 1300,
+                    margin: 'auto',
+                    minHeight: 300
+                }}
+            >
+                {/*<div*/}
+                {/*    style={{*/}
+                {/*        padding: 24,*/}
+                {/*        minHeight: 380,*/}
+                {/*        background: colorBgContainer,*/}
+                {/*    }}*/}
+                {/*>*/}
+                    {children}
+                {/*</div>*/}
+            </Content>
             <Bottom/>
         </Layout>
     );
