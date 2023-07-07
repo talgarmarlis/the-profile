@@ -8,6 +8,7 @@ export async function getPostList(){
     return await notion.databases.query({database_id: DATABASE_ID})
 }
 
+// @ts-ignore
 export async function getPostContent(pageId){
     const response = await notion.blocks.children.list({
         block_id: pageId,

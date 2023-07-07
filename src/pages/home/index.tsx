@@ -1,19 +1,21 @@
-import {Card, Col, Divider, Row, Space, Typography} from "antd";
+import {Col, Divider, Row, Space} from "antd";
 import Bio from "./bio";
 import Posts from "./posts";
-import Newsletter from "./newsletter";
-import {getPostList} from "../../lib/notion";
+// import Newsletter from "./newsletter";
 import {useEffect, useState} from "react";
+import {getPostList} from "../../lib/notion";
 
 export default function Home() {
 
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-       getPostList().then(result => {
+        getPostList().then(result => {
            console.log(result)
-           // @ts-ignore
            setArticles(result)
+            // @ts-ignore
+       }).catch(err => {
+           console.log(err)
        })
     }, []);
 

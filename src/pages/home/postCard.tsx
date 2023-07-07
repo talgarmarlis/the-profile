@@ -1,7 +1,5 @@
-import {Avatar, Button, Card, Col, Row, Space, Tag, Typography} from 'antd';
+import {Avatar, Card, Col, Row, Space, Tag, Typography} from 'antd';
 import moment from "moment";
-
-const { Meta } = Card;
 
 // @ts-ignore
 function getCoverUrl(page){

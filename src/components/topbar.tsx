@@ -1,6 +1,6 @@
 import {Menu, Layout, theme, Typography, Divider} from 'antd';
 import { useState } from 'react';
-const { Header, Content} = Layout;
+const { Header} = Layout;
 const items : any[] = [
     // {
     //     label: (

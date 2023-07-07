@@ -6,7 +6,8 @@ import {
     SafetyCertificateTwoTone,
     CrownTwoTone,
 } from "@ant-design/icons";
-import {FaEnvelope, FaGithub, FaInstagram, FaLinkedinIn, FaRegEnvelope, FaTelegramPlane} from "react-icons/fa";
+import {FaGithub, FaInstagram, FaLinkedinIn, FaRegEnvelope, FaTelegramPlane} from "react-icons/fa";
+import avatar from './../../images/avatar.png';
 
 const { Title, Paragraph } = Typography
 
@@ -38,8 +39,6 @@ const data = [
     },
 ];
 
-const url = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
-
 
 export default function Bio() {
     return (
@@ -49,7 +48,7 @@ export default function Bio() {
             lg: 32,
         }}>
             <Col md={12} span={24}>
-                <Image style={{borderRadius: 10}} width={250} preview={false} src="/images/avatar.png" alt="talgar-profile-photo" />
+                <Image style={{borderRadius: 10}} width={250} preview={false} src={avatar} alt="talgar-profile-photo" />
                 <Title level={3}>Hey there!</Title>
                 <Paragraph>
                     Welcome to personal website of Talgar, a software geek working at Amazon. I'll be sharing cool tech posts and offering my advice on job hunts and software engineering choices. Join me on this digital adventure, and let's rock the tech world!
