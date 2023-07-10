@@ -55,19 +55,19 @@ export default function Bio() {
                 </Paragraph>
                 <Space size={20} wrap >
                     <Tooltip title="talgarmarlis@gmail.com">
-                        <Button shape="circle" style={{display: 'flex'}} icon={<FaRegEnvelope  style={{margin: 'auto'}} size={18} />} href="mailto:talgarmarlis@gmail.com" />
+                        <Button shape="circle" style={{padding: 5}} icon={<FaRegEnvelope  style={{margin: 'auto'}} size={20} />} href="mailto:talgarmarlis@gmail.com" />
                     </Tooltip>
                     <Tooltip title="linkedin.com/in/talgarmarlis/">
-                        <Button  shape="circle" style={{display: 'flex'}} icon={<FaLinkedinIn style={{margin: 'auto'}} size={18} />} href="https://www.linkedin.com/in/talgarmarlis" />
+                        <Button  shape="circle" style={{padding: 5}} icon={<FaLinkedinIn style={{margin: 'auto'}} size={20} />} href="https://www.linkedin.com/in/talgarmarlis" />
                     </Tooltip>
                     <Tooltip title="@talgarmarlis">
-                        <Button  shape="circle" style={{display: 'flex'}} icon={<FaGithub style={{margin: 'auto'}} size={18} />} href="https://instagram.com/talgarmarlis" />
+                        <Button  shape="circle" style={{padding: 5}} icon={<FaGithub style={{margin: 'auto'}} size={20} />} href="https://instagram.com/talgarmarlis" />
                     </Tooltip>
                     <Tooltip title="github.com/talgarmarlis">
-                        <Button  shape="circle" style={{display: 'flex'}} icon={<FaInstagram style={{margin: 'auto'}} size={18} />} href="https://github.com/talgarmarlis" />
+                        <Button  shape="circle" style={{padding: 5}} icon={<FaInstagram style={{margin: 'auto'}} size={20} />} href="https://github.com/talgarmarlis" />
                     </Tooltip>
                     <Tooltip title="t.me/talgarmarlis">
-                        <Button  shape="circle" style={{display: 'flex'}} icon={<FaTelegramPlane style={{margin: 'auto'}} size={18} />} href="https://t.me/talgarmarlis" />
+                        <Button  shape="circle" style={{padding: 5}} icon={<FaTelegramPlane size={20} />} href="https://t.me/talgarmarlis" />
                     </Tooltip>
                 </Space>
             </Col>
@@ -76,7 +76,7 @@ export default function Bio() {
                     itemLayout="horizontal"
                     dataSource={data}
                     renderItem={(item, index) => (
-                        <List.Item style={{border: 'none'}}>
+                        <List.Item style={{border: 'none', padding: 0}}>
                             <List.Item.Meta
                                 // avatar={<Avatar style={{ backgroundColor: '#fff' }} size="large" icon={item.icon} />}
                                 title={item.title}

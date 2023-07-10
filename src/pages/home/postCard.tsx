@@ -11,7 +11,7 @@ function getCoverUrl(page){
 // @ts-ignore
 function getIcon(page){
     const {icon} = page
-    console.log(page)
+    // console.log(page)
     if(icon) {
         if(icon[icon.type].url)
             return <Avatar src={icon[icon.type].url} />
@@ -60,7 +60,7 @@ export default function PostCard({postPage}) {
                         </Typography.Title>
                         <Typography.Text disabled>{moment(postPage.created_time).fromNow()}</Typography.Text>
                     </Col>
-                    <Col span={6}>{getIcon(postPage)}</Col>
+                    <Col span={6} style={{textAlign: 'right'}}>{getIcon(postPage)}</Col>
                 </Row>
                 <div style={{maxWidth:400}}>
                     <Space size={[0, 'small']} wrap>

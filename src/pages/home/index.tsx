@@ -3,16 +3,17 @@ import Bio from "./bio";
 import Posts from "./posts";
 // import Newsletter from "./newsletter";
 import {useEffect, useState} from "react";
-import {getPostList} from "../../lib/notion";
+import {notionService} from "../../services/notion";
+// import {getPostList} from "../../lib/notion";
 
 export default function Home() {
 
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        getPostList().then(result => {
-           console.log(result)
-           setArticles(result)
+        console.log('calling nservice')
+        notionService.getPostList().then(result => {
+           setArticles(result.data.results)
             // @ts-ignore
        }).catch(err => {
            console.log(err)
