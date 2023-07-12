@@ -4,7 +4,9 @@ const apiClient = axios.create({
     baseURL: 'https://notion-api-proxy.talgarmarlis.workers.dev',
     timeout: 5000,
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
     },
 })
 
