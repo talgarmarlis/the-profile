@@ -25,6 +25,7 @@ export default function Home() {
            setArticles(result.data.results)
        }).catch(err => {
            console.log(err)
+            openNotification(JSON.stringify(err))
        })
         console.log('i fire once');
     }, []);
