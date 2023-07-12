@@ -13,16 +13,7 @@ apiClient.interceptors.request.use(request => {
 })
 
 apiClient.interceptors.response.use(undefined, error => {
-    // Errors handling
-    const { response } = error
-    const { data } = response
-    if (data) {
-        // notification.warning({
-        //   message: data.message,
-        // })
-        return Promise.reject(data)
-    }
-    return Promise.reject(response)
+    return Promise.reject(error)
 })
 
 export default apiClient
