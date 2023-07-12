@@ -33,7 +33,7 @@ function getProperty(page, propName) {
 }
 
 // @ts-ignore
-export default function PostCard({postPage}) {
+export default function ArticleCard({postPage}) {
 
     // @ts-ignore
     // @ts-ignore

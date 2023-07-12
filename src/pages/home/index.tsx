@@ -1,27 +1,37 @@
-import {Col, Divider, Row, Space} from "antd";
-import Bio from "./bio";
-import Posts from "./posts";
-// import Newsletter from "./newsletter";
+import {Col, Divider, Row, Space, notification} from "antd";
 import {useEffect, useState} from "react";
+
+import Bio from "./bio";
+import Articles from "./articles";
 import {notionService} from "../../services/notion";
-// import {getPostList} from "../../lib/notion";
 
 export default function Home() {
 
     const [articles, setArticles] = useState([]);
 
+    const [api, contextHolder] = notification.useNotification();
+    // @ts-ignore
+    const openNotification = (data) => {
+        api.open({
+            message: 'Loaded',
+            description: data,
+        });
+    };
+
     useEffect(() => {
         console.log('calling nservice')
         notionService.getPostList().then(result => {
+            openNotification(JSON.stringify(result.data.results))
            setArticles(result.data.results)
-            // @ts-ignore
        }).catch(err => {
            console.log(err)
        })
+        console.log('i fire once');
     }, []);
 
     return (
         <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+            {contextHolder}
             <Bio/>
             <Row gutter={{
                 sm: 16,
@@ -30,7 +40,7 @@ export default function Home() {
             }}>
                 <Col md={15} span={24}>
                     <Divider orientation="left">Latest Posts</Divider>
-                    <Posts articles={articles}/>
+                    <Articles articles={articles}/>
                 </Col>
                 {/*<Col md={9} span={24}>*/}
                 {/*    <Divider orientation="left">Newsletter</Divider>*/}
