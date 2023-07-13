@@ -7,7 +7,7 @@ import {notionService} from "../../services/notion";
 
 export default function Home() {
 
-    const [articles, setArticles] = useState([]);
+    const [articles] = useState([]);
 
     const [api, contextHolder] = notification.useNotification();
     // @ts-ignore
@@ -20,9 +20,9 @@ export default function Home() {
 
     useEffect(() => {
         console.log('calling nservice')
-        notionService.getPostList().then(result => {
+        notionService.getArticleList().then(result => {
             openNotification(JSON.stringify(result.data.results))
-           setArticles(result.data.results)
+           // setArticles(result.data.results)
        }).catch(err => {
            console.log(err)
             openNotification(JSON.stringify(err))
