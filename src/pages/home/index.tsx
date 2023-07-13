@@ -21,7 +21,7 @@ export default function Home() {
     useEffect(() => {
         console.log('calling nservice')
         notionService.getArticleList().then(result => {
-            openNotification(JSON.stringify(result.data.results))
+            openNotification(JSON.stringify(result))
            // setArticles(result.data.results)
        }).catch(err => {
            console.log(err)

@@ -1,14 +1,10 @@
-const baseURL= 'https://notion-api-proxy.talgarmarlis.workers.dev/';
+const baseURL= 'https://notion-api-proxy.talgarmarlis.workers.dev/v1/';
 
 const notionFetch = async function (method: string, path: string, data?: any){
     try {
-        const response = await fetch(baseURL, {
-            method: method, // *GET, POST, PUT, DELETE, etc.
-            mode: "no-cors",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        const response = await fetch(`${baseURL}${path}`, {
+            method: "POST",
+            body: JSON.stringify(data)
         });
         return response.json()
     } catch (error: any) {
@@ -18,7 +14,7 @@ const notionFetch = async function (method: string, path: string, data?: any){
 }
 
 function queryDatabase(database_id: any){
-    return notionFetch("POST", `/v1/databases/${database_id}/query`);
+    return notionFetch("POST", `databases/${database_id}/query`, {});
 }
 
 function getArticleList() {
