@@ -1,9 +1,13 @@
-const baseURL= 'https://notion-api-proxy.talgarmarlis.workers.dev/v1/';
-
+const baseURL= 'https://np.talgarmarlis.workers.dev/v1/';
+// const NOTION_API_KEY = 'secret_tmzKXTcRFUhFsFWEZPDetLNG4d5BMhHP5upjIe72fPh'
 const notionFetch = async function (method: string, path: string, data?: any){
     try {
         const response = await fetch(`${baseURL}${path}`, {
-            method: "GET",
+            method: method,
+            // headers: {
+            //     'Authorization': `Bearer ${NOTION_API_KEY}`,
+            //     'Notion-Version': '2022-06-28',
+            // }
             // body: JSON.stringify(data)
         });
         return response.json()
@@ -14,7 +18,7 @@ const notionFetch = async function (method: string, path: string, data?: any){
 }
 
 function queryDatabase(database_id: any){
-    return notionFetch("GET", `databases/${database_id}/query`, {});
+    return notionFetch("POST", `databases/${database_id}/query`, {});
 }
 
 function getArticleList() {
