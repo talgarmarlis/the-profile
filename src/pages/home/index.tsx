@@ -19,15 +19,11 @@ export default function Home() {
     };
 
     useEffect(() => {
-        console.log('calling nservice')
         notionService.getArticleList().then(result => {
-            openNotification(JSON.stringify(result))
            setArticles(result.data.results)
        }).catch(err => {
            console.log(err)
-            openNotification(JSON.stringify(err))
        })
-        console.log('i fire once');
     }, []);
 
     return (

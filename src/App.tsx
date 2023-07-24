@@ -1,21 +1,24 @@
-import {Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Typography} from "antd";
 import './App.css';
-import MainLayout from "./components/layout";
+import MainLayout from "./components/layout/mainLayout";
 import Home from "./pages/home";
 import Article from "./pages/article";
+import CleanLayout from "./components/layout/cleanLayout";
 
 export default function App() {
     return (
-        <Routes>
-            <Route path="/" element={<MainLayout />}>
-                <Route index element={<Home />} />
-                <Route path="articles" element={<MainLayout />}>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MainLayout />}>
+                    <Route index element={<Home />} />
+                </Route>
+                <Route path="articles" element={<CleanLayout />}>
                     <Route path=":pageId" element={<Article />} />
                 </Route>
                 <Route path="*" element={<NoMatch />} />
-            </Route>
-        </Routes>
+            </Routes>
+        </BrowserRouter>
     );
 }
 

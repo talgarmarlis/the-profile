@@ -61,10 +61,10 @@ export default function Bio() {
                         <Button  shape="circle" style={{padding: 5}} icon={<FaLinkedinIn style={{margin: 'auto'}} size={20} />} href="https://www.linkedin.com/in/talgarmarlis" />
                     </Tooltip>
                     <Tooltip title="@talgarmarlis">
-                        <Button  shape="circle" style={{padding: 5}} icon={<FaGithub style={{margin: 'auto'}} size={20} />} href="https://instagram.com/talgarmarlis" />
+                        <Button  shape="circle" style={{padding: 5}} icon={<FaInstagram style={{margin: 'auto'}} size={20} />} href="https://instagram.com/talgarmarlis" />
                     </Tooltip>
                     <Tooltip title="github.com/talgarmarlis">
-                        <Button  shape="circle" style={{padding: 5}} icon={<FaInstagram style={{margin: 'auto'}} size={20} />} href="https://github.com/talgarmarlis" />
+                        <Button  shape="circle" style={{padding: 5}} icon={<FaGithub style={{margin: 'auto'}} size={20} />} href="https://github.com/talgarmarlis" />
                     </Tooltip>
                     <Tooltip title="t.me/talgarmarlis">
                         <Button  shape="circle" style={{padding: 5}} icon={<FaTelegramPlane size={20} />} href="https://t.me/talgarmarlis" />

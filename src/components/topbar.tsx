@@ -1,55 +1,50 @@
-import {Menu, Layout, theme, Typography, Divider} from 'antd';
-import { useState } from 'react';
+import {Menu, Layout, Typography, Divider} from 'antd';
+import Container from "./layout/container";
+import Link from "antd/es/typography/Link";
 const { Header} = Layout;
 const items : any[] = [
-    // {
-    //     label: (
-    //         <Link href="/">
-    //             HOME
-    //         </Link>
-    //     ),
-    //     key: 'home'
-    // },
-    // {
-    //     label: (
-    //         <Link href="/resume">
-    //             RESUME
-    //         </Link>
-    //     ),
-    //     key: 'resume'
-    // }
+    {
+        label: (
+            <Link href="/">
+                HOME
+            </Link>
+        ),
+        key: 'home'
+    },
+    {
+        label: (
+            <Link href="/resume">
+                RESUME
+            </Link>
+        ),
+        key: 'resume'
+    }
 ];
 
-export default function TopBar() {
-
-    const [current, setCurrent] = useState('home');
-    const onClick = (e: any) => {
-        console.log('click ', e);
-        setCurrent(e.key);
-    };
-    const {
-        token: { colorBgContainer },
-    } = theme.useToken();
+const Topbar: React.FC<{divider?: boolean | null}> = ({divider}) => {
 
     return (
         <div>
-            <Header
-                style={{
-                    position: 'sticky',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    top: 0,
-                    zIndex: 1,
-                    maxWidth:1300,
-                    margin: 'auto',
-                    background: colorBgContainer,
-                    alignItems: 'right'
-                }}
-            >
-                <Typography.Title level={5}>Talgar Marlis</Typography.Title>
-                <Menu style={{borderBottom: 'none', display: 'table-cell', float: 'right', textAlign: 'right'}} onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
-            </Header>
-            <Divider style={{margin: 0}} />
+            <Container>
+                <Header
+                    style={{
+                        position: 'sticky',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        top: 0,
+                        zIndex: 1,
+                        padding: 0,
+                        background: 'none',
+                        alignItems: 'right'
+                    }}
+                >
+                    <Typography.Link href="/"><Typography.Title level={5}>Talgar Marlis</Typography.Title></Typography.Link>
+                    <Menu style={{background: 'none', borderBottom: 'none', display: 'table-cell', float: 'right', textAlign: 'right'}} mode="horizontal" items={items} />
+                </Header>
+            </Container>
+            {divider && <Divider style={{margin: 0}} />}
         </div>
     );
 }
+
+export default Topbar;

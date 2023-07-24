@@ -9,7 +9,7 @@ export default function Articles({articles}) {
     return (
         <Space direction="vertical" size="large" style={{ display: 'flex' }}>
             {articles.map((articlePage:any, index:any) => (
-                <ArticleCard postPage={articlePage} key={`article-card-key-${index}`}/>
+                <ArticleCard articlePage={articlePage} key={`article-card-key-${index}`}/>
             ))}
         </Space>
     );

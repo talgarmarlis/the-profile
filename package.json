@@ -26,6 +26,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@dhaiwat10/react-link-preview": "^1.15.0",
     "@notionhq/client": "^2.2.6",
     "antd": "^5.6.4",
     "axios": "^1.4.0",
