@@ -18,7 +18,7 @@ function getIcon(page){
     return null;
 }
 
-const PageCover: React.FC<{ page: PAGE | any }> = ({ page }) => {
+const PageCover: React.FC<{ page: PAGE | any, color: string }> = ({ page, color }) => {
 
     const coverUrl = page.cover ? page.cover[page.cover.type].url : null;
     return <div
@@ -32,7 +32,7 @@ const PageCover: React.FC<{ page: PAGE | any }> = ({ page }) => {
             style={{
                 paddingBottom: 20,
                 boxShadow: 'none',
-                backgroundColor: coverUrl ? 'rgb(230, 242, 238, 0.4)' : 'rgb(230, 242, 238)'
+                backgroundColor: coverUrl ? `rgb(${color}, 0.6)` : `rgb(${color})`
             }}
         >
             <Topbar />
@@ -63,8 +63,8 @@ const PageCover: React.FC<{ page: PAGE | any }> = ({ page }) => {
 
                     <Row style={{marginBottom:10, textAlign: 'center'}}>
                         {page.properties.Tags && page.properties.Tags.multi_select.map((tag:any, index: any) => (
-                            <Tag bordered={false} style={{borderRadius: 8}} color="rgba(46, 77, 66, 0.6)" key={`page-detail-${page.id}-tag-${index}`}>
-                                {tag.name}
+                            <Tag bordered={false} style={{borderRadius: 8, backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)'}} color={`rgba(${color}, 0.3)`} key={`page-detail-${page.id}-tag-${index}`}>
+                                <strong>{tag.name}</strong>
                             </Tag>
                         ))}
                     </Row>

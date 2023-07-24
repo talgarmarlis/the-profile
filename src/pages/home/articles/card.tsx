@@ -31,9 +31,8 @@ function getProperty(page, propName) {
     }
     return null;
 }
-
 // @ts-ignore
-export default function ArticleCard({articlePage}) {
+export default function ArticleCard({articlePage, color}) {
 
     // @ts-ignore
     // @ts-ignore
@@ -43,35 +42,32 @@ export default function ArticleCard({articlePage}) {
                 borderRadius: 10,
                 background: 'no-repeat center',
                 backgroundSize: 'cover',
-                backgroundImage: `radial-gradient(rgba(230, 242, 238, 0.2), rgba(230, 242, 238, 0.9)), url(${getCoverUrl(articlePage)})`,
+                backgroundImage: `radial-gradient(rgba(${color}, 0.2), rgba(${color}, 0.9)), url(${getCoverUrl(articlePage)})`,
             }}
         >
             <Card
                 bordered={false}
                 hoverable
                 style={{
-                    paddingBottom: 20,
                     boxShadow: 'none',
-                    backgroundColor: getCoverUrl(articlePage) ? 'rgb(230, 242, 238, 0.1)' : 'rgb(230, 242, 238)'
+                    backgroundColor: getCoverUrl(articlePage) ? `rgb(${color}, 0.4)` : `rgb(${color})`
                 }}
             >
-                <Typography.Link href={`/#/articles/${articlePage.id}`}>
-                <Row style={{marginBottom:15}}>
+                <Typography.Link href={`/#/articles/${articlePage.id}?color=${color}`}>
+                <Row style={{marginBottom:30}}>
                     <Col span={18}>
-
-                            <Typography.Title style={{margin: 0}} level={5}>
-                                {getProperty(articlePage, "Name") && getProperty(articlePage, "Name").map((item:any) => (item.plain_text))}
-                            </Typography.Title>
-                            <Typography.Text disabled>{moment(articlePage.created_time).fromNow()}</Typography.Text>
+                        <Typography.Title style={{margin: 0}} level={5}>
+                            {getProperty(articlePage, "Name") && getProperty(articlePage, "Name").map((item:any) => (item.plain_text))}
+                        </Typography.Title>
                     </Col>
-                    <Col span={6} style={{textAlign: 'right'}}>{getIcon(articlePage)}</Col>
+                    <Col span={6} style={{textAlign: 'right'}}><Typography.Text disabled>{moment(articlePage.created_time).fromNow()}</Typography.Text></Col>
                 </Row>
                 </Typography.Link>
                 <div style={{maxWidth:400}}>
                     <Space size={[0, 'small']} wrap>
                         {getProperty(articlePage, "Tags") && getProperty(articlePage, "Tags").map((tag:any, index: any) => (
-                            <Tag bordered={false} style={{borderRadius: 8}} color="rgba(46, 77, 66, 0.6)" key={`article-card-${articlePage.id}-tag-${index}`}>
-                                {tag.name}
+                            <Tag bordered={false} style={{borderRadius: 8, backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)'}} color={`rgba(${color}, 0.5)`} key={`article-card-${articlePage.id}-tag-${index}`}>
+                                <strong>{tag.name}</strong>
                             </Tag>
                         ))}
                     </Space>
