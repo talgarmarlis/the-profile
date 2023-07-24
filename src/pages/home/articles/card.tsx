@@ -55,7 +55,7 @@ export default function ArticleCard({articlePage}) {
                     backgroundColor: getCoverUrl(articlePage) ? 'rgb(230, 242, 238, 0.1)' : 'rgb(230, 242, 238)'
                 }}
             >
-                <Typography.Link href={`/articles/${articlePage.id}`}>
+                <Typography.Link href={`/#/articles/${articlePage.id}`}>
                 <Row style={{marginBottom:15}}>
                     <Col span={18}>
 

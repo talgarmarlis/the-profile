@@ -13,7 +13,7 @@ const items : any[] = [
     },
     {
         label: (
-            <Link href="/resume">
+            <Link href="/#/resume">
                 RESUME
             </Link>
         ),

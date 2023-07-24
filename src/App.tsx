@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import {Typography} from "antd";
 import './App.css';
 import MainLayout from "./components/layout/mainLayout";
@@ -8,7 +8,7 @@ import CleanLayout from "./components/layout/cleanLayout";
 
 export default function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path="/" element={<MainLayout />}>
                     <Route index element={<Home />} />
@@ -18,7 +18,7 @@ export default function App() {
                 </Route>
                 <Route path="*" element={<NoMatch />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 

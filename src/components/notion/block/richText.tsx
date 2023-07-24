@@ -12,7 +12,7 @@ const RichText: React.FC<{ rt: RichText }> = ({ rt }) => {
                 style={{color: cArr.length === 1 ? cArr[0] : '', backgroundColor: cArr.length === 2 ? cArr[0] : '', fontSize:'100%'}}
             >
                 {rt.href &&
-                    <Typography.Link href={rt.href.startsWith('/') ? `/articles${rt.href}` : rt.href}>
+                    <Typography.Link href={rt.href.startsWith('/') ? `/#/articles${rt.href}` : rt.href}>
                         {rt.plain_text}
                     </Typography.Link>
                 }
