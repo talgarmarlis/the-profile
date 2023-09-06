@@ -38,8 +38,8 @@ const Topbar: React.FC<{divider?: boolean | null}> = ({divider}) => {
                         alignItems: 'right'
                     }}
                 >
-                    <Typography.Link href="/"><Typography.Title level={5}>Talgar Marlis</Typography.Title></Typography.Link>
-                    <Menu style={{background: 'none', borderBottom: 'none', display: 'table-cell', float: 'right', textAlign: 'right'}} mode="horizontal" items={items} />
+                    <Typography.Link href="/"><Typography.Title level={5}>TALGAR MARLIS</Typography.Title></Typography.Link>
+                    <Menu inlineCollapsed={true} style={{background: 'none', borderBottom: 'none', display: 'table-cell', float: 'right', textAlign: 'right'}} mode="horizontal" items={items} />
                 </Header>
             </Container>
             {divider && <Divider style={{margin: 0}} />}

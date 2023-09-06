@@ -66,8 +66,8 @@ export default function ArticleCard({articlePage, color}) {
                 <div style={{maxWidth:400}}>
                     <Space size={[0, 'small']} wrap>
                         {getProperty(articlePage, "Tags") && getProperty(articlePage, "Tags").map((tag:any, index: any) => (
-                            <Tag bordered={false} style={{borderRadius: 8, backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)'}} color={`rgba(${color}, 0.5)`} key={`article-card-${articlePage.id}-tag-${index}`}>
-                                <strong>{tag.name}</strong>
+                            <Tag bordered={false} style={{borderRadius: 8, fontSize:12, backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)'}} color={`rgba(${color}, 0.5)`} key={`article-card-${articlePage.id}-tag-${index}`}>
+                                <span>{tag.name.toUpperCase()}</span>
                             </Tag>
                         ))}
                     </Space>

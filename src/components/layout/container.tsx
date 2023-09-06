@@ -8,7 +8,7 @@ const Container: React.FC<{children?: any}> = ({children}) => {
             className="site-layout"
             style={{
                 padding: '0 20px',
-                maxWidth: 1200,
+                maxWidth: 1050,
                 margin: 'auto',
             }}
         >

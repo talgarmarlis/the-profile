@@ -8,7 +8,7 @@ import Children from "./children";
 import Section from "../../layout/section";
 
 
-const Page: React.FC<{pageId: string, color: string}> = ({pageId, color}) => {
+const Page: React.FC<{pageId: string, color?: string, cover?: boolean}> = ({pageId, color, cover = true}) => {
     const navigate = useNavigate();
     const [page, setPage] = useState<PAGE | null>(null);
 
@@ -26,8 +26,8 @@ const Page: React.FC<{pageId: string, color: string}> = ({pageId, color}) => {
 
 
     return (
-        <div style={{background: "#fff"}} >
-            <PageCover page={page} color={color}/>
+        <div style={{background: "#fff", fontSize: 14}} >
+            {cover && <PageCover page={page} color={color}/>}
             <Container>
                 <Section>
                     <Children parentId={page.id} />

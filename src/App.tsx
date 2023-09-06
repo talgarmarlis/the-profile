@@ -1,24 +1,38 @@
 import {HashRouter, Route, Routes} from "react-router-dom";
-import {Typography} from "antd";
+import {ConfigProvider, Typography} from "antd";
 import './App.css';
 import MainLayout from "./components/layout/mainLayout";
 import Home from "./pages/home";
 import Article from "./pages/article";
 import CleanLayout from "./components/layout/cleanLayout";
+import Resume from "./pages/resume";
 
 export default function App() {
     return (
-        <HashRouter>
-            <Routes>
-                <Route path="/" element={<MainLayout />}>
-                    <Route index element={<Home />} />
-                </Route>
-                <Route path="articles" element={<CleanLayout />}>
-                    <Route path=":pageId" element={<Article />} />
-                </Route>
-                <Route path="*" element={<NoMatch />} />
-            </Routes>
-        </HashRouter>
+        <ConfigProvider
+            theme={{
+                token: {
+                    fontSize: 16,
+                    fontFamily: "Lato, Tahoma, Verdana, sans-serif"
+                },
+            }}
+        >
+            <HashRouter>
+                <Routes>
+                    <Route path="/" element={<MainLayout />}>
+                        <Route index element={<Home />} />
+                    </Route>
+                    <Route path="/resume" element={<MainLayout />}>
+                        <Route index element={<Resume />} />
+                    </Route>
+                    <Route path="articles" element={<CleanLayout />}>
+                        <Route path=":pageId" element={<Article />} />
+                    </Route>
+
+                    <Route path="*" element={<NoMatch />} />
+                </Routes>
+            </HashRouter>
+        </ConfigProvider>
     );
 }
 

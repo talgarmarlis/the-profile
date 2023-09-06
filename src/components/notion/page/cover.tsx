@@ -18,7 +18,7 @@ function getIcon(page){
     return null;
 }
 
-const PageCover: React.FC<{ page: PAGE | any, color: string }> = ({ page, color }) => {
+const PageCover: React.FC<{ page: PAGE | any, color?: string }> = ({ page, color ='230, 242, 238' }) => {
 
     const coverUrl = page.cover ? page.cover[page.cover.type].url : null;
     return <div
@@ -63,8 +63,8 @@ const PageCover: React.FC<{ page: PAGE | any, color: string }> = ({ page, color 
 
                     <Row style={{marginBottom:10, textAlign: 'center'}}>
                         {page.properties.Tags && page.properties.Tags.multi_select.map((tag:any, index: any) => (
-                            <Tag bordered={false} style={{borderRadius: 8, backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)'}} color={`rgba(${color}, 0.3)`} key={`page-detail-${page.id}-tag-${index}`}>
-                                <strong>{tag.name}</strong>
+                            <Tag bordered={false} style={{borderRadius: 8, fontSize:12, backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)'}} color={`rgba(${color}, 0.3)`} key={`page-detail-${page.id}-tag-${index}`}>
+                                <span>{tag.name.toUpperCase()}</span>
                             </Tag>
                         ))}
                     </Row>
