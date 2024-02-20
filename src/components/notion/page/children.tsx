@@ -4,16 +4,19 @@ import Block from "../block";
 import {BLOCK, BlockType, BlockTypeObject} from "../interface/block";
 
 
-const Children: React.FC<{parentId: string}> = ({parentId}) => {
+const Children: React.FC<{parentId: string, toc?: BlockTypeObject[]}> = ({parentId, toc}) => {
     const [blocks, setBlocks] = useState<BLOCK[]>([]);
+    const [table, setTable] = useState<BlockTypeObject[]>([]);
 
     useEffect(() => {
         notionService.getBlocks(parentId)
             .then(response => {
             // @ts-ignore
-            let child =  groupLists(response.data.results)
+            let groupedResult =  groupLists(response.data.results)
+            let tC = toc ?? getTableOfContents(response.data.results);
+            setTable(tC);
             // @ts-ignore
-            setBlocks(child);
+            setBlocks(groupedResult);
             })
             .catch(err => {
                 console.log(err)
@@ -60,11 +63,23 @@ const Children: React.FC<{parentId: string}> = ({parentId}) => {
         return groupedBlocks;
     }
 
+    function getTableOfContents (blocks : BlockTypeObject[]) {
+        let table = [];
+        for (let i = 0; i < blocks.length; i++) {
+            if(blocks[i].type === BlockType.Heading1 || blocks[i].type === BlockType.Heading2 || blocks[i].type === BlockType.Heading3) {
+                table.push(blocks[i]);
+            }
+        }
+        return table;
+    }
+
     return (
         <>
-            {blocks.map((block: BlockTypeObject, index:any) => (
-                <Block key={`block_key_${index}`} block={block}/>
-            ))}
+            {
+                blocks.map((block: BlockTypeObject, index:any) => (
+                    <Block key={`block_key_${index}`} block={block} toc={table}/>
+                ))
+            }
         </>
     )
 };

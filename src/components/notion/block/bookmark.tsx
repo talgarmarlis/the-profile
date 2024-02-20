@@ -9,7 +9,7 @@ const Bookmark: React.FC<{ block: BookmarkBlock | any }> = ({ block }) => {
             {/*    <RichText rt={rt} key={`block-paragraph-${block.id}-rt-${index}`}/>*/}
             {/*))}*/}
             <Typography.Link href={block.bookmark.url} target="_blank">
-                <Card hoverable >
+                <Card hoverable style={{marginBottom:10, padding:5}} size='small'>
                     <Card.Meta
                         title={new URL(block.bookmark.url).hostname}
                         description={block.bookmark.url}

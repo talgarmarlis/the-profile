@@ -18,9 +18,10 @@ import Toggle from "./toggle";
 import Bookmark from "./bookmark";
 import File from "./file";
 import PDF from "./pdf";
+import TableOfContents from "./tableOfContents";
 
 
-const Block: React.FC<{ block: BlockTypeObject }> = ({ block }) => {
+const Block: React.FC<{ block: BlockTypeObject, toc: any }> = ({ block, toc }) => {
     if (block.type === BlockType.Paragraph) {
         return <NParagraph block={block} />
     }
@@ -62,7 +63,7 @@ const Block: React.FC<{ block: BlockTypeObject }> = ({ block }) => {
     }
 
     if (block.type === BlockType.ColumnList) {
-        return <ColumnList block={block} />
+        return <ColumnList block={block} toc={toc}/>
     }
 
     if (block.type === BlockType.Quote) {
@@ -87,6 +88,14 @@ const Block: React.FC<{ block: BlockTypeObject }> = ({ block }) => {
 
     if (block.type === BlockType.PDF) {
         return <PDF block={block} />
+    }
+
+    if (block.type === BlockType.TableOfContents) {
+        return <TableOfContents toc={toc} />;
+    }
+
+    if (block.type === BlockType.Unsupported) {
+        return;
     }
 
 

@@ -15,6 +15,7 @@ export interface PAGE {
         Tags: MultiSelectProperty;
         Subtitle: RichTextProperty;
         Name: TitleProperty;
+        Page: TitleProperty;
         title: TitleProperty;
         [key: string]: any; // Add more property types if needed
     };

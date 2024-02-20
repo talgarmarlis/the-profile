@@ -58,6 +58,7 @@ export default function ArticleCard({articlePage, color}) {
                     <Col span={18}>
                         <Typography.Title style={{margin: 0}} level={5}>
                             {getProperty(articlePage, "Name") && getProperty(articlePage, "Name").map((item:any) => (item.plain_text))}
+                            {getProperty(articlePage, "Page") && getProperty(articlePage, "Page").map((item:any) => (item.plain_text))}
                         </Typography.Title>
                     </Col>
                     <Col span={6} style={{textAlign: 'right'}}><Typography.Text disabled>{moment(articlePage.created_time).fromNow()}</Typography.Text></Col>

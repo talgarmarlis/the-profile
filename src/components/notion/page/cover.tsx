@@ -7,13 +7,13 @@ import Container from "../../layout/container";
 import Section from "../../layout/section";
 
 // @ts-ignore
-function getIcon(page){
+export function getIcon(page){
     const {icon} = page
     // console.log(page)
     if(icon) {
         if(icon[icon.type].url)
-            return <Avatar src={icon[icon.type].url} />
-        return <Avatar>{icon[icon.type]}</Avatar>
+            return <Avatar src={icon[icon.type].url} size="small" />
+        return <Avatar size="small">{icon[icon.type]}</Avatar>
     }
     return null;
 }
@@ -42,6 +42,11 @@ const PageCover: React.FC<{ page: PAGE | any, color?: string }> = ({ page, color
                         <Typography.Title style={{margin: 0}} level={1}>
                             { page.properties.Name &&
                                 page.properties.Name.title.map((rt: RichText, index:number) => (
+                                    <RichText rt={rt} key={`page-title-${page.id}-rt-${index}`}/>
+                                ))
+                            }
+                            { page.properties.Page &&
+                                page.properties.Page.title.map((rt: RichText, index:number) => (
                                     <RichText rt={rt} key={`page-title-${page.id}-rt-${index}`}/>
                                 ))
                             }

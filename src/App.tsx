@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import Article from "./pages/article";
 import CleanLayout from "./components/layout/cleanLayout";
 import Resume from "./pages/resume";
+import Compendium from "./pages/compendium";
 
 export default function App() {
     return (
@@ -24,6 +25,9 @@ export default function App() {
                     </Route>
                     <Route path="/resume" element={<MainLayout />}>
                         <Route index element={<Resume />} />
+                    </Route>
+                    <Route path="/compendium" element={<MainLayout />}>
+                        <Route index element={<Compendium />} />
                     </Route>
                     <Route path="articles" element={<CleanLayout />}>
                         <Route path=":pageId" element={<Article />} />

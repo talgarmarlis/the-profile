@@ -18,6 +18,14 @@ const items : any[] = [
             </Link>
         ),
         key: 'resume'
+    },
+    {
+        label: (
+            <Link href="/#/compendium">
+                COMPENDIUM
+            </Link>
+        ),
+        key: 'compendium'
     }
 ];
 

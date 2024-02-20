@@ -1,11 +1,11 @@
 import {Col, Row} from "antd";
-import {ColumnListBlock} from '../interface/block';
+import {BlockTypeObject, ColumnListBlock} from '../interface/block';
 import {useEffect, useState} from "react";
 import {notionService} from "../../../services/notion";
 import Children from "../page/children";
 
 
-const ColumnList: React.FC<{ block: ColumnListBlock | any }> = ({ block }) => {
+const ColumnList: React.FC<{ block: ColumnListBlock | any, toc: BlockTypeObject[] }> = ({ block, toc }) => {
 
     const [rows, setRows] = useState([]);
 
@@ -43,7 +43,7 @@ const ColumnList: React.FC<{ block: ColumnListBlock | any }> = ({ block }) => {
             <Row key={`col-row-${block.id}`}>
                 {rows.map((col: any, index: number) => (
                     <Col xs={{ span: 24}} sm={{ span: Math.max(24/rows.length, 12)}} md={{span: Math.max(24/rows.length, 8)}} lg={{span: Math.max(24/rows.length, 6)}} key={`row-${block.id}-${index}`} style={{padding: 5}}>
-                        <Children parentId={col.id} />
+                        <Children parentId={col.id} toc={toc}/>
                     </Col>
                 ))}
             </Row>
