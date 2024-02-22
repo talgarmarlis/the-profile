@@ -8,7 +8,6 @@ import {notionService} from "../../services/notion";
 export default function Home() {
 
     const [articles, setArticles] = useState([]);
-    const [compendiumArticles, setCompendiumArticles] = useState([]);
 
     const [api, contextHolder] = notification.useNotification();
     // @ts-ignore
@@ -25,12 +24,6 @@ export default function Home() {
        }).catch(err => {
            console.log(err)
        })
-
-       notionService.getLatestCompendiumPages().then(result => {
-            setCompendiumArticles(result.data.results)
-        }).catch(err => {
-            console.log(err)
-        })
     }, []);
 
     return (
@@ -46,14 +39,14 @@ export default function Home() {
                     <Divider orientation="left">Latest Posts</Divider>
                     <Articles articles={articles}/>
                 </Col>
-                <Col md={9} span={24}>
+                {/* <Col md={9} span={24}>
                    <Divider orientation="left">Latest from compendium</Divider>
                    <Articles articles={compendiumArticles}/>
-                {/*    <Newsletter/>*/}
-                {/*    <Newsletter/>*/}
-                {/*    <Newsletter/>*/}
-                {/*    <Newsletter/>*/}
-                </Col>
+                   <Newsletter/>
+                   <Newsletter/>
+                   <Newsletter/>
+                   <Newsletter/>
+                </Col> */}
             </Row>
         </Space>
     );
