@@ -22,7 +22,7 @@ const LinkToPage: React.FC<{ block: LinkToPageBlock | any }> = ({ block }) => {
     }, []);
 
     return (
-        <Link href={`/#/articles/${block.id}`} target="_blank">
+        <Link href={`/#/articles/${block.link_to_page.page_id}`} target="_blank">
                 <Card hoverable style={{marginBottom:10, padding:5}} size='small'>
                     <Card.Meta
                         avatar={page && getIcon(page)}
