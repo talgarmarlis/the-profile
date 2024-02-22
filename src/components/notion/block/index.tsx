@@ -19,9 +19,11 @@ import Bookmark from "./bookmark";
 import File from "./file";
 import PDF from "./pdf";
 import TableOfContents from "./tableOfContents";
+import LinkToPage from "./linkToPage";
 
 
 const Block: React.FC<{ block: BlockTypeObject, toc: any }> = ({ block, toc }) => {
+    
     if (block.type === BlockType.Paragraph) {
         return <NParagraph block={block} />
     }
@@ -82,6 +84,11 @@ const Block: React.FC<{ block: BlockTypeObject, toc: any }> = ({ block, toc }) =
         return <Bookmark block={block} />
     }
 
+
+    if (block.type === BlockType.LinkToPage) {
+        return <LinkToPage block={block} />
+    }
+
     if (block.type === BlockType.File) {
         return <File block={block} />
     }
@@ -98,8 +105,6 @@ const Block: React.FC<{ block: BlockTypeObject, toc: any }> = ({ block, toc }) =
         return;
     }
 
-
-    // console.log(block)
 
     // @ts-ignore
     return <Typography.Paragraph><b>{block.type}</b> {JSON.stringify(block)}</Typography.Paragraph>

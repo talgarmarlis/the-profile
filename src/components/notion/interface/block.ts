@@ -172,9 +172,12 @@ export interface LinkPreviewBlock extends Block {
     };
 }
 
-export interface MentionBlock extends Block {
+export interface LinkToPageBlock extends Block {
     type: BlockType.LinkToPage;
-    mention: PageMention | DatabaseMention | DateMention | LinkPreviewMention | UserMention;
+    link_to_page: {
+        type: string;
+        page_id: string;
+    }
 }
 
 export interface NumberedListItemBlock extends Block {
@@ -297,7 +300,6 @@ export type BlockTypeObject =
     | Heading3Block
     | ImageBlock
     | LinkPreviewBlock
-    | MentionBlock
     | NumberedListItemBlock
     | ParagraphBlock
     | PDFBlock
