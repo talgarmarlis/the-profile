@@ -1,8 +1,8 @@
 import apiClient from "../axios";
 
-function queryDatabase(database_id: any){
+function queryDatabase(database_id: any, filterData?: any){
     // return notionFetch("POST", `databases/${database_id}/query`, {});
-    return apiClient.post(`databases/${database_id}/query`)
+    return apiClient.post(`databases/${database_id}/query`, filterData)
 }
 
 function getArticleList() {
@@ -10,7 +10,20 @@ function getArticleList() {
 }
 
 function getLatestCompendiumPages() {
-    return queryDatabase('44e0a82fca2444f384bcc83d6e17e760')
+    return queryDatabase('44e0a82fca2444f384bcc83d6e17e760', {
+        filter: {
+            property: "Completed Date",
+            date: {
+                is_not_empty: true
+            }
+        },
+        sorts: [
+            {
+                property: "Completed Date",
+                direction: "descending"
+            }
+        ]
+    })
 }
 
 function getPage(pageId: string) {
