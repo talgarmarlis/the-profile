@@ -19,13 +19,6 @@ const Compendium: React.FC<{ color?: string; cover?: boolean }> = ({
               Software Development Compendium
             </Typography.Title>
           </Row>
-          <Row
-            style={{ marginBottom: 15, textAlign: "right", display: "flow" }}
-          >
-            <Typography.Title level={3}>
-              [ 🚧 Under Construction...]
-            </Typography.Title>
-          </Row>
         </Section>
       </Container>
       <Container>
